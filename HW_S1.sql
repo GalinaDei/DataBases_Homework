@@ -23,6 +23,7 @@ WHERE ProductCount * Price > 100000 AND ProductCount * Price < 145000;
 
 SELECT * FROM phones WHERE ProductName LIKE '%iPhone%';
 SELECT * FROM phones WHERE ProductName LIKE '%Galaxy%';
+SELECT * FROM phones WHERE ProductName RLIKE '[0-9]';
 SELECT * FROM phones WHERE ProductName RLIKE '[8]';
 
 
