@@ -69,3 +69,6 @@ FROM schedule;
 SELECT train_id,station,station_time, next, TIMEDIFF(LEAD(station_time) 
 OVER(), station_time) AS time_to_next_stantion 
 FROM (SELECT *, LEAD(station_time) OVER() next FROM schedule) c1;
+
+SELECT *, TIMEDIFF(LEAD(station_time) OVER(PARTITION BY train_id ORDER BY station_time), station_time) time_to_next_stantion 
+FROM schedule;
