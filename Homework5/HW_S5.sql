@@ -63,4 +63,9 @@ VALUES
 SELECT *
 FROM schedule;
 
-SELECT *, LEAD(station_time) OVER() AS time_to_next_station FROM schedule;
+--SELECT *, LEAD(station_time) OVER() AS time_to_next_station FROM schedule;
+--SELECT *, TIMEDIFF(LEAD(station_time) OVER(), station_time) AS time_to_next_station FROM schedule;
+
+SELECT train_id,station,station_time, next, TIMEDIFF(LEAD(station_time) 
+OVER(), station_time) AS time_to_next_stantion 
+FROM (SELECT *, LEAD(station_time) OVER() next FROM schedule) c1;
